@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
+import Icon from '../components/Icon';
 import certificationsData from '../data/certifications.json';
 
 interface Certification {
@@ -91,14 +92,15 @@ const Certifications: React.FC = () => {
 
   const getCategoryIcon = (category: string) => {
     const icons: { [key: string]: string } = {
-      'Web Development': '🌐',
-      'Cloud Computing': '☁️',
-      'Database': '🗄️',
-      'DevOps': '🔧',
-      'Security': '🔒',
-      'Project Management': '📋'
+      'Core Programming & DSA': 'code',
+      'Global Certifications': 'star',
+      'Full Stack': 'globe',
+      'Cloud & Git': 'cloud',
+      'AI and ML': 'brain',
+      'Cybersecurity & Blockchain': 'target',
+      'Soft Skills': 'users'
     };
-    return icons[category] || '📜';
+    return icons[category] || 'trophy';
   };
 
   // Group certifications by category
@@ -124,46 +126,74 @@ const Certifications: React.FC = () => {
 
       {/* Statistics */}
       <section className="section" style={{ 
-        paddingTop: '2rem', 
-        paddingBottom: '2rem',
+        paddingTop: '1rem', 
+        paddingBottom: '1rem',
         background: 'var(--secondary-bg)'
       }}>
         <div className="container">
-          <div className="grid grid-4">
-            <div className="card text-center">
-              <h3 style={{ color: 'var(--accent-color)', marginBottom: '0.5rem' }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '1rem'
+          }}>
+            <div className="card text-center" style={{ 
+              flex: '1', 
+              minWidth: '180px',
+              margin: '0',
+              padding: '1rem'
+            }}>
+              <h3 style={{ color: 'var(--accent-color)', marginBottom: '0.25rem', fontSize: '1.8rem' }}>
                 {certifications.length}
               </h3>
-              <p style={{ margin: 0 }}>Total Certifications</p>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>Total Certifications</p>
             </div>
-            <div className="card text-center">
-              <h3 style={{ color: 'var(--accent-color)', marginBottom: '0.5rem' }}>
+            <div className="card text-center" style={{ 
+              flex: '1', 
+              minWidth: '180px',
+              margin: '0',
+              padding: '1rem'
+            }}>
+              <h3 style={{ color: 'var(--accent-color)', marginBottom: '0.25rem', fontSize: '1.8rem' }}>
                 {certifications.filter(cert => cert.status === 'Active').length}
               </h3>
-              <p style={{ margin: 0 }}>Active Certifications</p>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>Active Certifications</p>
             </div>
-            <div className="card text-center">
-              <h3 style={{ color: 'var(--accent-color)', marginBottom: '0.5rem' }}>
+            <div className="card text-center" style={{ 
+              flex: '1', 
+              minWidth: '180px',
+              margin: '0',
+              padding: '1rem'
+            }}>
+              <h3 style={{ color: 'var(--accent-color)', marginBottom: '0.25rem', fontSize: '1.8rem' }}>
                 {certificationsData.categories.length - 1}
               </h3>
-              <p style={{ margin: 0 }}>Categories</p>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>Categories</p>
             </div>
-            <div className="card text-center">
-              <h3 style={{ color: 'var(--accent-color)', marginBottom: '0.5rem' }}>
+            <div className="card text-center" style={{ 
+              flex: '1', 
+              minWidth: '180px',
+              margin: '0',
+              padding: '1rem'
+            }}>
+              <h3 style={{ color: 'var(--accent-color)', marginBottom: '0.25rem', fontSize: '1.8rem' }}>
                 {certificationsData.issuers.length}
               </h3>
-              <p style={{ margin: 0 }}>Certified Partners</p>
+              <p style={{ margin: 0, fontSize: '0.9rem' }}>Certified Partners</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Search and Filters */}
-      <section className="section" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+      <section className="section" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
         <div className="container">
           {/* Search Bar */}
           <div className="search-container">
-            <div className="search-icon">🔍</div>
+            <div className="search-icon">
+              <Icon name="search" size={16} />
+            </div>
             <input
               type="text"
               className="search-input"
@@ -187,7 +217,8 @@ const Certifications: React.FC = () => {
                     className={`filter-tag ${selectedCategory === category ? 'active' : ''}`}
                     onClick={() => handleCategoryChange(category)}
                   >
-                    {category === 'All' ? '📜' : getCategoryIcon(category)} {category}
+                    <Icon name={category === 'All' ? 'trophy' : getCategoryIcon(category)} size={16} />
+                    <span style={{ marginLeft: '0.5rem' }}>{category}</span>
                   </button>
                 ))}
               </div>
@@ -261,7 +292,8 @@ const Certifications: React.FC = () => {
                   certs.length > 0 && (
                     <div key={category} className="cert-category">
                       <h2 className="cert-category-title">
-                        {getCategoryIcon(category)} {category}
+                        <Icon name={getCategoryIcon(category)} size={24} />
+                        <span style={{ marginLeft: '0.5rem' }}>{category}</span>
                       </h2>
                       <div className="cert-grid">
                         {certs.map((cert, index) => (
@@ -347,7 +379,8 @@ const Certifications: React.FC = () => {
                                   fontWeight: '500'
                                 }}
                               >
-                                🔗 Verify
+                                <Icon name="external" size={14} />
+                                <span style={{ marginLeft: '0.5rem' }}>Verify</span>
                               </a>
                             </div>
                           </div>
@@ -452,7 +485,8 @@ const Certifications: React.FC = () => {
                             fontWeight: '500'
                           }}
                         >
-                          🔗 Verify
+                          <Icon name="external" size={14} />
+                          <span style={{ marginLeft: '0.5rem' }}>Verify</span>
                         </a>
                       </div>
                     </div>

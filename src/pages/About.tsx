@@ -1,118 +1,178 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import Icon from '../components/Icon';
 
 const About: React.FC = () => {
-  const skills = {
-    'AI/ML & Data Science': [
-      'Python', 'TensorFlow', 'Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib',
-      'Machine Learning', 'Deep Learning', 'Data Analysis', 'Computer Vision'
-    ],
-    'Frontend Development': [
-      'React.js', 'JavaScript', 'HTML5', 'CSS3', 'Bootstrap', 'Responsive Design',
-      'DOM Manipulation', 'AJAX', 'jQuery', 'UI/UX Design'
-    ],
-    'Backend Development': [
-      'Node.js', 'Express.js', 'Python', 'Django', 'RESTful APIs',
-      'Server-side Development', 'API Integration', 'Authentication'
-    ],
-    'Database & Tools': [
-      'MongoDB', 'MySQL', 'Git & GitHub', 'Docker', 'Linux',
-      'VS Code', 'Database Design', 'Version Control', 'Agile Methodology'
-    ],
-    'IoT & Hardware': [
-      'Arduino', 'Raspberry Pi', 'Sensor Integration', 'Hardware Programming',
-      'Embedded Systems', 'IoT Protocols', 'Circuit Design'
-    ]
-  };
+  const skillCategories = [
+    { 
+      name: 'Programming Languages', 
+      icon: 'code', 
+      skills: ['Python', 'Java', 'C', 'JavaScript', 'HTML', 'CSS'],
+      color: '#4285f4',
+      type: 'technical'
+    },
+    { 
+      name: 'Web Development', 
+      icon: 'globe', 
+      skills: ['React.js', 'Node.js', 'Express.js', 'Bootstrap', 'Responsive Design'],
+      color: '#61dafb',
+      type: 'technical'
+    },
+    { 
+      name: 'AI/ML & Data Science', 
+      icon: 'brain', 
+      skills: ['Machine Learning', 'TensorFlow', 'scikit-learn', 'Pandas', 'NumPy', 'Data Analysis'],
+      color: '#ff6f00',
+      type: 'technical'
+    },
+    { 
+      name: 'Databases', 
+      icon: 'database', 
+      skills: ['SQL', 'MongoDB'],
+      color: '#4db33d',
+      type: 'technical'
+    },
+    { 
+      name: 'Presentation Tools', 
+      icon: 'chart', 
+      skills: ['PowerPoint', 'Power BI'],
+      color: '#d83b01',
+      type: 'tools'
+    },
+    { 
+      name: 'Platforms & Frameworks', 
+      icon: 'cloud', 
+      skills: ['Git', 'GitHub', 'IoT', 'IBM Cloud', 'Google Cloud', 'Salesforce CRM'],
+      color: '#ff9900',
+      type: 'platforms'
+    },
+    { 
+      name: 'Technical Expertise', 
+      icon: 'tools', 
+      skills: ['Data Structures & Algorithms', 'Problem Solving', 'OOP', 'Computer Networks', 'Linux', 'Software Engineering'],
+      color: '#7b68ee',
+      type: 'technical'
+    },
+    { 
+      name: 'Soft Skills', 
+      icon: 'users', 
+      skills: ['Teamwork', 'Time Management', 'Self-motivated', 'Communication'],
+      color: '#ff6b6b',
+      type: 'soft'
+    },
+    { 
+      name: 'Languages Known', 
+      icon: 'globe', 
+      skills: ['Telugu', 'Hindi', 'English'],
+      color: '#4ecdc4',
+      type: 'languages'
+    }
+  ];
 
   const education = [
     {
-      degree: 'Bachelor of Technology in Computer Science Engineering',
-      institution: 'Gayatri Vidya Parishad College of Engineering',
-      period: '2022 - 2026 (Expected)',
-      gpa: 'Current CGPA: 8.5/10',
-      description: 'Specializing in AI/ML, Data Science, and Full-stack Development. Active in technical projects and coding competitions.'
+      degree: 'Bachelor of Technology',
+      field: 'CSE',
+      institution: 'Prasad V. Potluri Siddhartha Institute of Technology',
+      period: '2022-2026',
+      gpa: '8.87 CGPA',
+      description: 'Pursuing Computer Science Engineering with focus on AI/ML, Full-stack Development, and IoT. Active in technical projects and coding competitions.'
     },
     {
-      degree: 'Intermediate (12th Grade)',
+      degree: 'Intermediate',
+      field: 'MPC',
       institution: 'Sri Chaitanya Junior College',
-      period: '2020 - 2022',
-      gpa: 'Percentage: 95.8%',
+      period: '2020–2022',
+      gpa: '96.8%',
       description: 'Mathematics, Physics, Chemistry (MPC) stream with excellent academic performance.'
     },
     {
-      degree: 'Secondary School Certificate (10th Grade)',
-      institution: 'Bhashyam Public School',
-      period: '2019 - 2020',
-      gpa: 'CGPA: 10/10',
-      description: 'Achieved perfect score with strong foundation in mathematics and science subjects.'
+      degree: '10th Class',
+      field: '',
+      institution: 'Model Mission High School',
+      period: '2020',
+      gpa: '9.8 CGPA',
+      description: 'Achieved excellent score with strong foundation in mathematics and science subjects.'
     }
   ];
 
   const experiences = [
     {
-      title: 'AI/ML Research Student',
-      company: 'GVPCE Research Lab',
-      period: '2023 - Present',
-      type: 'Research',
+      title: 'Cybersecurity Virtual Internship',
+      company: 'Palo Alto Company (Eduskills Platform)',
+      period: 'Jan 2024– Mar 2024',
+      type: 'Virtual Internship',
       description: [
-        'Working on machine learning projects focused on computer vision and data analysis',
-        'Developing AI models using Python, TensorFlow, and Scikit-learn',
-        'Collaborating with faculty on research papers and technical documentation',
-        'Participating in national-level technical competitions and hackathons'
+        'Gained hands-on experience simulating real-world tasks such as configuring security rules and analyzing cyber threats.'
       ]
     },
     {
-      title: 'Full-Stack Development Projects',
-      company: 'Personal & Academic Projects',
-      period: '2022 - Present',
-      type: 'Project Work',
+      title: 'Android Developer Virtual Internship',
+      company: 'Google (Eduskills Platform)',
+      period: 'Apr 2024– Jun 2024',
+      type: 'Virtual Internship',
       description: [
-        'Built multiple web applications using React.js, Node.js, and MongoDB',
-        'Developed IoT-based smart systems using Arduino and Raspberry Pi',
-        'Created data visualization dashboards for academic research projects',
-        'Implemented RESTful APIs and database management systems'
+        'Developed core concepts like activity lifecycle, layout design, and connecting apps to data sources using APIs.'
       ]
     },
     {
-      title: 'Technical Team Member',
-      company: 'College Technical Club',
-      period: '2022 - Present',
-      type: 'Extracurricular',
+      title: 'AI-ML Virtual Internship',
+      company: 'Google (Eduskills Platform)',
+      period: 'Oct 2024– Dec 2024',
+      type: 'Virtual Internship',
       description: [
-        'Active member of college coding club and technical societies',
-        'Organized coding workshops and technical events for students',
-        'Mentored junior students in programming and project development',
-        'Participated in inter-college programming competitions'
+        'Explored core machine learning concepts and implemented models using Python, focusing on real-world problem-solving and performance evaluation.'
+      ]
+    },
+    {
+      title: 'Salesforce Developer',
+      company: 'Salesforce (Agentblazer Champion Program)',
+      period: 'May 2024– Jul 2024',
+      type: 'Virtual Internship',
+      description: [
+        'Completed the Salesforce Virtual Internship under the Agentblazer Champion Program; built core applications on the Salesforce platform and gained hands-on experience with Apex, Lightning Web Components, and automation tools.'
       ]
     }
   ];
 
   const achievements = [
     {
-      title: 'Academic Excellence',
-      description: 'Consistent high academic performance with 8.5+ CGPA in Computer Science Engineering',
-      year: '2022-Present'
+      title: 'Ideathon Winner',
+      description: 'Winner of Ideathon by ISTE, PVPSIT for developing an innovative IoT-based solution.',
+      year: '2024'
     },
     {
-      title: 'Perfect Score Achievement',
-      description: 'Achieved 10/10 CGPA in 10th grade and 95.8% in 12th grade',
-      year: '2020-2022'
+      title: 'Naukri Campus Young Turks',
+      description: 'Secured 94.24% in Naukri Campus Young Turks skill contest.',
+      year: '2024'
     },
     {
-      title: 'Technical Project Innovation',
-      description: 'Developed multiple AI/ML and IoT projects showcasing practical application of technology',
-      year: '2023-2024'
+      title: 'GATE Examination',
+      description: 'Achieved an All India Rank of 6009 in GATE Examination.',
+      year: '2024'
+    }
+  ];
+
+  const coActivities = [
+    {
+      title: 'Google Cloud Jam & GenAI Campaign',
+      description: 'Volunteered for Google Cloud Jam & GenAI Campaign at PVPSIT',
+      year: '2024'
     },
     {
-      title: 'Programming Competitions',
-      description: 'Active participant in coding competitions and technical events at college and national level',
-      year: '2022-Present'
+      title: 'Start-up Expo Participation',
+      description: 'Participated in Start-up Expo, E-Cell, IIT Hyderabad',
+      year: '2024'
     },
     {
-      title: 'Research Contributions',
-      description: 'Contributing to research projects in AI/ML domain with focus on real-world applications',
-      year: '2023-Present'
+      title: 'Project Expo Coordination',
+      description: 'Coordinated Project Expo, SITAR 2K25 at PVPSIT',
+      year: '2025'
+    },
+    {
+      title: 'NCC Achievement',
+      description: 'Earned the NCC \'A\' Certificate',
+      year: '2023'
     }
   ];
 
@@ -136,35 +196,34 @@ const About: React.FC = () => {
             <div className="slide-in-left">
               <h2>Career Objective</h2>
               <p>
-                As a passionate full-stack developer, I strive to create innovative and 
-                user-centric web applications that solve real-world problems. My goal is 
-                to continuously learn and adapt to emerging technologies while delivering 
-                high-quality, scalable solutions.
+                To become a proficient Computer Science Engineer in a progressive organization, where I can apply my
+                programming expertise, problem-solving skills, and knowledge of software development tools to contribute to
+                innovative solutions, while continuously enhancing my technical proficiency and professional growth.
               </p>
               <p>
-                I believe in the power of clean code, collaborative teamwork, and 
-                user-focused design. I'm always eager to take on new challenges and 
-                contribute to projects that make a positive impact on users' lives.
+                As a final year student at Prasad V. Potluri Siddhartha Institute of Technology, I am passionate about 
+                leveraging technology to solve real-world problems. I believe in continuous learning, collaborative 
+                development, and creating impactful solutions through code.
               </p>
               <div style={{ marginTop: '2rem' }}>
                 <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                   <div>
                     <h4 style={{ color: 'var(--accent-color)', marginBottom: '0.5rem' }}>
-                      3+
+                      Final Year
                     </h4>
-                    <p style={{ margin: 0, fontSize: '0.9rem' }}>Years Experience</p>
+                    <p style={{ margin: 0, fontSize: '0.9rem' }}>CSE Student</p>
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--accent-color)', marginBottom: '0.5rem' }}>
-                      15+
+                      8.87
                     </h4>
-                    <p style={{ margin: 0, fontSize: '0.9rem' }}>Projects Completed</p>
+                    <p style={{ margin: 0, fontSize: '0.9rem' }}>Current CGPA</p>
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--accent-color)', marginBottom: '0.5rem' }}>
-                      100%
+                      10+
                     </h4>
-                    <p style={{ margin: 0, fontSize: '0.9rem' }}>Client Satisfaction</p>
+                    <p style={{ margin: 0, fontSize: '0.9rem' }}>Projects Built</p>
                   </div>
                 </div>
               </div>
@@ -222,12 +281,20 @@ const About: React.FC = () => {
                   display: 'flex', 
                   justifyContent: 'space-around',
                   marginTop: '2rem',
-                  fontSize: '2rem'
+                  fontSize: '1.5rem'
                 }}>
-                  <span title="Innovation">💡</span>
-                  <span title="Quality">⭐</span>
-                  <span title="Collaboration">🤝</span>
-                  <span title="Growth">📈</span>
+                  <div title="Innovation">
+                    <Icon name="lightbulb" size={32} color="var(--accent-color)" />
+                  </div>
+                  <div title="Quality">
+                    <Icon name="star" size={32} color="var(--accent-color)" />
+                  </div>
+                  <div title="Collaboration">
+                    <Icon name="handshake" size={32} color="var(--accent-color)" />
+                  </div>
+                  <div title="Growth">
+                    <Icon name="chart" size={32} color="var(--accent-color)" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -243,15 +310,63 @@ const About: React.FC = () => {
             <p>Technologies and tools I use to bring ideas to life</p>
           </div>
           
-          <div className="skills-grid">
-            {Object.entries(skills).map(([category, skillList], index) => (
-              <div key={category} className={`skill-category fade-in`} style={{
-                animationDelay: `${index * 0.1}s`
+          <div style={{
+            display: 'grid',
+            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
+          }}>
+            {skillCategories.map((category, index) => (
+              <div key={category.name} className={`skill-category card`} style={{
+                padding: '1.5rem',
+                borderLeft: `4px solid ${category.color}`,
+                transition: 'all 0.3s ease',
+                background: 'var(--card-bg)'
               }}>
-                <h4>{category}</h4>
-                <div className="skill-list">
-                  {skillList.map(skill => (
-                    <span key={skill} className="skill-item">
+                <div style={{ 
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '1rem',
+                  gap: '0.5rem'
+                }}>
+                  <Icon name={category.icon} size={24} color={category.color} />
+                  <h3 style={{ 
+                    margin: 0,
+                    fontSize: '1.1rem',
+                    color: category.color
+                  }}>
+                    {category.name}
+                  </h3>
+                </div>
+                <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem'
+                }}>
+                  {category.skills.map(skill => (
+                    <span 
+                      key={skill} 
+                      style={{
+                        background: `${category.color}15`,
+                        color: category.color,
+                        padding: '0.3rem 0.8rem',
+                        borderRadius: '20px',
+                        fontSize: '0.85rem',
+                        fontWeight: '500',
+                        border: `1px solid ${category.color}30`,
+                        transition: 'all 0.3s ease',
+                        cursor: 'default'
+                      }}
+                      onMouseOver={(e) => {
+                        const target = e.target as HTMLSpanElement;
+                        target.style.background = `${category.color}25`;
+                        target.style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseOut={(e) => {
+                        const target = e.target as HTMLSpanElement;
+                        target.style.background = `${category.color}15`;
+                        target.style.transform = 'translateY(0)';
+                      }}
+                    >
                       {skill}
                     </span>
                   ))}
@@ -275,7 +390,7 @@ const About: React.FC = () => {
               <div key={edu.degree} className={`card slide-in-${index % 2 === 0 ? 'left' : 'right'}`}>
                 <div style={{ marginBottom: '1rem' }}>
                   <h3 style={{ marginBottom: '0.5rem', color: 'var(--primary-text)' }}>
-                    {edu.degree}
+                    {edu.degree}{edu.field && `, ${edu.field}`}
                   </h3>
                   <p style={{ 
                     color: 'var(--accent-color)', 
@@ -393,7 +508,7 @@ const About: React.FC = () => {
                     fontSize: '2rem',
                     minWidth: '60px'
                   }}>
-                    🏆
+                    <Icon name="trophy" size={32} color="var(--accent-color)" />
                   </div>
                   <div>
                     <h4 style={{ 
@@ -423,9 +538,58 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* Co-curricular Activities Section */}
+      <section className="section" style={{ background: 'var(--secondary-bg)' }}>
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2>Co-curricular Activities</h2>
+            <p>Extracurricular involvement and leadership experiences</p>
+          </div>
+          
+          <div className="grid grid-2">
+            {coActivities.map((activity, index) => (
+              <div key={activity.title} className={`card slide-in-${index % 2 === 0 ? 'left' : 'right'}`}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start',
+                  gap: '1rem'
+                }}>
+                  <div style={{ 
+                    fontSize: '2rem',
+                    minWidth: '60px'
+                  }}>
+                    <Icon name="target" size={32} color="var(--accent-color)" />
+                  </div>
+                  <div>
+                    <h4 style={{ 
+                      color: 'var(--primary-text)',
+                      marginBottom: '0.5rem'
+                    }}>
+                      {activity.title}
+                    </h4>
+                    <p style={{ 
+                      color: 'var(--secondary-text)',
+                      marginBottom: '0.5rem'
+                    }}>
+                      {activity.description}
+                    </p>
+                    <span style={{ 
+                      color: 'var(--accent-color)',
+                      fontWeight: '500',
+                      fontSize: '0.9rem'
+                    }}>
+                      {activity.year}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="section" style={{
-        background: 'var(--secondary-bg)',
         textAlign: 'center',
         padding: '6rem 0'
       }}>

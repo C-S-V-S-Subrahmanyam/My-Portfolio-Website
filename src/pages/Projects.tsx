@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
+import ProjectCard from '../components/ProjectCard';
 import projectsData from '../data/projects.json';
 
 interface Project {
@@ -198,66 +199,11 @@ const Projects: React.FC = () => {
                 .filter(project => project.featured)
                 .slice(0, 4)
                 .map((project, index) => (
-                  <div key={project.id} className={`project-card fade-in`} style={{
-                    animationDelay: `${index * 0.1}s`
-                  }}>
-                    <div className="project-image">
-                      <div style={{ fontSize: '3rem' }}>
-                        {project.category === 'Full-Stack' ? '🚀' : 
-                         project.category === 'Frontend' ? '🎨' : '⚙️'}
-                      </div>
-                      {project.status === 'In Progress' && (
-                        <div style={{
-                          position: 'absolute',
-                          top: '10px',
-                          right: '10px',
-                          background: 'var(--warning-color)',
-                          color: 'var(--primary-bg)',
-                          padding: '0.3rem 0.8rem',
-                          borderRadius: '15px',
-                          fontSize: '0.8rem',
-                          fontWeight: '500'
-                        }}>
-                          In Progress
-                        </div>
-                      )}
-                    </div>
-                    
-                    <div className="project-content">
-                      <h3 className="project-title">{project.title}</h3>
-                      <p className="project-description">{project.description}</p>
-                      
-                      <div className="project-tech">
-                        {project.technologies.slice(0, 4).map(tech => (
-                          <span key={tech} className="tech-tag">{tech}</span>
-                        ))}
-                        {project.technologies.length > 4 && (
-                          <span className="tech-tag">+{project.technologies.length - 4} more</span>
-                        )}
-                      </div>
-                      
-                      <div className="project-links">
-                        <a 
-                          href={project.githubUrl} 
-                          className="project-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          📦 GitHub
-                        </a>
-                        {project.status === 'Completed' && (
-                          <a 
-                            href={project.liveUrl} 
-                            className="project-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            🚀 Live Demo
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+                  <ProjectCard 
+                    key={project.id} 
+                    project={project} 
+                    index={index}
+                  />
                 ))}
             </div>
           </div>
@@ -277,80 +223,11 @@ const Projects: React.FC = () => {
           {filteredProjects.length > 0 ? (
             <div className="grid grid-3">
               {filteredProjects.map((project, index) => (
-                <div key={project.id} className={`project-card fade-in`} style={{
-                  animationDelay: `${index * 0.1}s`
-                }}>
-                  <div className="project-image">
-                    <div style={{ fontSize: '2.5rem' }}>
-                      {project.category === 'Full-Stack' ? '🚀' : 
-                       project.category === 'Frontend' ? '🎨' : '⚙️'}
-                    </div>
-                    {project.status === 'In Progress' && (
-                      <div style={{
-                        position: 'absolute',
-                        top: '10px',
-                        right: '10px',
-                        background: 'var(--warning-color)',
-                        color: 'var(--primary-bg)',
-                        padding: '0.3rem 0.8rem',
-                        borderRadius: '15px',
-                        fontSize: '0.8rem',
-                        fontWeight: '500'
-                      }}>
-                        In Progress
-                      </div>
-                    )}
-                    
-                    <div style={{
-                      position: 'absolute',
-                      top: '10px',
-                      left: '10px',
-                      background: 'var(--accent-color)',
-                      color: 'var(--primary-bg)',
-                      padding: '0.3rem 0.8rem',
-                      borderRadius: '15px',
-                      fontSize: '0.8rem',
-                      fontWeight: '500'
-                    }}>
-                      {project.category}
-                    </div>
-                  </div>
-                  
-                  <div className="project-content">
-                    <h3 className="project-title">{project.title}</h3>
-                    <p className="project-description">{project.description}</p>
-                    
-                    <div className="project-tech">
-                      {project.technologies.slice(0, 3).map(tech => (
-                        <span key={tech} className="tech-tag">{tech}</span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className="tech-tag">+{project.technologies.length - 3}</span>
-                      )}
-                    </div>
-                    
-                    <div className="project-links">
-                      <a 
-                        href={project.githubUrl} 
-                        className="project-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        📦 Code
-                      </a>
-                      {project.status === 'Completed' && (
-                        <a 
-                          href={project.liveUrl} 
-                          className="project-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          🚀 Demo
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                <ProjectCard 
+                  key={project.id} 
+                  project={project} 
+                  index={index}
+                />
               ))}
             </div>
           ) : (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import Icon from '../components/Icon';
 
 interface FormData {
   name: string;
@@ -29,25 +30,25 @@ const Contact: React.FC = () => {
 
   const contactInfo = [
     {
-      icon: '📧',
+      icon: 'email',
       label: 'Email',
       value: 'subrahmanyamchintalapati@gmail.com',
       link: 'mailto:subrahmanyamchintalapati@gmail.com'
     },
     {
-      icon: '📱',
+      icon: 'phone',
       label: 'Phone',
       value: '+91 XXXXX-XXXXX',
       link: 'tel:+91XXXXXXXXXX'
     },
     {
-      icon: '📍',
+      icon: 'location',
       label: 'Location',
       value: 'Visakhapatnam, Andhra Pradesh, India',
       link: 'https://maps.google.com/?q=Visakhapatnam,AP,India'
     },
     {
-      icon: '💼',
+      icon: 'linkedin',
       label: 'LinkedIn',
       value: '/in/yourprofile',
       link: 'https://linkedin.com/in/yourprofile'
@@ -56,13 +57,13 @@ const Contact: React.FC = () => {
 
   const quickLinks = [
     {
-      icon: '🐙',
+      icon: 'github',
       label: 'GitHub',
       description: 'View my repositories and contributions',
       link: 'https://github.com/yourusername'
     },
     {
-      icon: '💼',
+      icon: 'linkedin',
       label: 'LinkedIn',
       description: 'Connect with me professionally',
       link: 'https://linkedin.com/in/yourprofile'
@@ -191,7 +192,7 @@ const Contact: React.FC = () => {
                 <div key={info.label} className={`contact-item fade-in`} style={{
                   animationDelay: `${index * 0.1}s`
                 }}>
-                  <span className="contact-icon">{info.icon}</span>
+                  <Icon name={info.icon} size={24} className="contact-icon" />
                   <div>
                     <h4 style={{ 
                       color: 'var(--primary-text)',
@@ -413,7 +414,7 @@ const Contact: React.FC = () => {
                         minWidth: '50px',
                         textAlign: 'center'
                       }}>
-                        {link.icon}
+                        <Icon name={link.icon} size={32} />
                       </div>
                       <div>
                         <h4 style={{ 

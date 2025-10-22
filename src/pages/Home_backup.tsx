@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import ProjectCard from '../components/ProjectCard';
-import Icon from '../components/Icon';
 import projectsData from '../data/projects.json';
 
 const Home: React.FC = () => {
@@ -35,56 +34,56 @@ const Home: React.FC = () => {
   const skillCategories = [
     { 
       name: 'Programming Languages', 
-      icon: 'code', 
+      icon: '💻', 
       skills: ['C', 'C++', 'Java', 'Python'],
       color: '#61dafb',
       type: 'technical'
     },
     { 
       name: 'Web Development', 
-      icon: 'globe', 
+      icon: '🌐', 
       skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'],
       color: '#f06529',
       type: 'technical'
     },
     { 
       name: 'Databases', 
-      icon: 'database', 
+      icon: '🗄️', 
       skills: ['SQL', 'MongoDB'],
       color: '#4db33d',
       type: 'technical'
     },
     { 
       name: 'Presentation Tools', 
-      icon: 'chart', 
+      icon: '📊', 
       skills: ['PowerPoint', 'Power BI'],
       color: '#d83b01',
       type: 'tools'
     },
     { 
       name: 'Platforms & Frameworks', 
-      icon: 'cloud', 
+      icon: '☁️', 
       skills: ['Git', 'GitHub', 'IoT', 'IBM Cloud', 'Google Cloud', 'Salesforce CRM'],
       color: '#ff9900',
       type: 'platforms'
     },
     { 
       name: 'Technical Expertise', 
-      icon: 'tools', 
+      icon: '🔧', 
       skills: ['Data Structures & Algorithms', 'Problem Solving', 'OOP', 'Computer Networks', 'Linux', 'Software Engineering'],
       color: '#7b68ee',
       type: 'technical'
     },
     { 
       name: 'Soft Skills', 
-      icon: 'users', 
+      icon: '🤝', 
       skills: ['Teamwork', 'Time Management', 'Self-motivated', 'Communication'],
       color: '#ff6b6b',
       type: 'soft'
     },
     { 
       name: 'Languages Known', 
-      icon: 'globe', 
+      icon: '🌍', 
       skills: ['Telugu', 'Hindi', 'English'],
       color: '#4ecdc4',
       type: 'languages'
@@ -96,12 +95,12 @@ const Home: React.FC = () => {
     : skillCategories.filter(category => category.type === skillFilter);
 
   const filterOptions = [
-    { value: 'all', label: 'All Skills', icon: 'target' },
-    { value: 'technical', label: 'Technical', icon: 'code' },
-    { value: 'tools', label: 'Tools', icon: 'tools' },
-    { value: 'platforms', label: 'Platforms', icon: 'cloud' },
-    { value: 'soft', label: 'Soft Skills', icon: 'users' },
-    { value: 'languages', label: 'Languages', icon: 'language' }
+    { value: 'all', label: 'All Skills', icon: '🎯' },
+    { value: 'technical', label: 'Technical', icon: '💻' },
+    { value: 'tools', label: 'Tools', icon: '🛠️' },
+    { value: 'platforms', label: 'Platforms', icon: '☁️' },
+    { value: 'soft', label: 'Soft Skills', icon: '🤝' },
+    { value: 'languages', label: 'Languages', icon: '🌍' }
   ];
 
   return (
@@ -123,6 +122,7 @@ const Home: React.FC = () => {
               border: '4px solid var(--accent-color)',
               boxShadow: 'var(--shadow-glow)'
             }}>
+              {/* Replace this div with your actual profile image */}
               <img src="/images/profile-small.jpg" alt="Subrahmanyam" style={{
                 width: '100%',
                 height: '100%',
@@ -136,11 +136,11 @@ const Home: React.FC = () => {
             </h1>
             
             <h2 className="hero-subtitle">
-              Computer Science and Engineering Student | AI/ML Enthusiast | Full-Stack Developer
+              Computer Science Engineering Student | AI/ML Enthusiast | Full-Stack Developer
             </h2>
             
             <p className="hero-tagline">
-              Passionate Computer Science and Engineering student with expertise in AI/ML, 
+              Passionate Computer Science Engineering student with expertise in AI/ML, 
               full-stack development, and IoT. I love solving complex problems 
               and building impactful digital solutions through innovative technology.
             </p>
@@ -215,12 +215,10 @@ const Home: React.FC = () => {
             <div className="slide-in-left">
               <h2>Welcome to My Portfolio</h2>
               <p>
-                I'm an enthusiastic Computer Science and Engineering student with a 
-                strong interest in Artificial Intelligence, Machine Learning, 
-                Full-Stack Development, and IoT technologies. 
-                I am currently pursuing my Bachelor of Technology in CSE 
-                and consistently work on innovative projects that integrate 
-                cutting-edge AI solutions with real-world applications.
+                I'm a dedicated Computer Science Engineering student with a passion for 
+                AI/ML, full-stack development, and IoT technologies. Currently pursuing 
+                my degree while actively building innovative projects that combine 
+                artificial intelligence with practical applications.
               </p>
               <ul style={{ 
                 color: 'var(--secondary-text)', 
@@ -228,9 +226,9 @@ const Home: React.FC = () => {
                 marginBottom: '2rem'
               }}>
                 <li>🎓 Computer Science Engineering Student</li>
-                <li>🤖 AI/ML Enthusiast</li>
-                <li>💻 Full-stack Development</li>
-                <li>🔧 IoT and Hardware Integration</li>
+                <li>🤖 AI/ML and Data Science Enthusiast</li>
+                <li>💻 Full-stack Development Experience</li>
+                <li>� IoT and Hardware Integration</li>
                 <li>🚀 Problem-solving and Innovation Focus</li>
               </ul>
               <Link to="/about" className="btn btn-primary">
@@ -292,7 +290,7 @@ const Home: React.FC = () => {
                   onClick={() => setIsFilterOpen(!isFilterOpen)}
                   title="Filter Skills"
                 >
-                  <Icon name="search" size={18} />
+                  🔍
                 </button>
                 
                 {isFilterOpen && (
@@ -340,7 +338,7 @@ const Home: React.FC = () => {
                           }
                         }}
                       >
-                        <Icon name={option.icon} size={16} />
+                        <span>{option.icon}</span>
                         <span>{option.label}</span>
                       </button>
                     ))}
@@ -383,7 +381,7 @@ const Home: React.FC = () => {
                   marginBottom: '1rem',
                   gap: '0.5rem'
                 }}>
-                  <Icon name={category.icon} size={24} color={category.color} />
+                  <span style={{ fontSize: '1.5rem' }}>{category.icon}</span>
                   <h3 style={{ 
                     margin: 0,
                     fontSize: '1.1rem',
@@ -432,13 +430,13 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
-      <section className="section" style={{ background: 'var(--secondary-bg)' }}>
+      {/* Recent Projects Preview */}
+      <section className="section" style={{ padding: '4rem 0' }}>
         <div className="container">
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="section-description">
-            Here are some of my recent projects that showcase my skills and passion for development.
-          </p>
+          <div className="text-center mb-5">
+            <h2>Featured Projects</h2>
+            <p>Some of my recent work that I'm proud to showcase</p>
+          </div>
           
           <div className="grid grid-3">
             {projectsData.projects
@@ -451,6 +449,36 @@ const Home: React.FC = () => {
                   index={index}
                 />
               ))}
+              {
+                title: 'EverCare Healthcare App',
+                description: 'Android healthcare application with appointment booking, health records, and medication reminders',
+                tech: ['Java', 'Android Studio', 'XML', 'Mobile Dev'],
+                image: '�'
+              },
+              {
+                title: 'IoT Food Spoilage Detection',
+                description: 'IoT-based solution detecting food spoilage using gas sensors with mobile alerts interface',
+                tech: ['IoT', 'Embedded Sensors', 'Mobile Interface', 'Hardware'],
+                image: '🌡️'
+              }
+            ].map((project, index) => (
+              <div key={project.title} className="project-card fade-in" style={{
+                animationDelay: `${index * 0.2}s`
+              }}>
+                <div className="project-image">
+                  <div style={{ fontSize: '3rem' }}>{project.image}</div>
+                </div>
+                <div className="project-content">
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-tech">
+                    {project.tech.map(tech => (
+                      <span key={tech} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
           
           <div className="text-center mt-5">
@@ -488,7 +516,7 @@ const Home: React.FC = () => {
               Get In Touch
             </Link>
             <a 
-              href="mailto:subrahmanyam310308@gmail.com" 
+              href="mailto:subrahmanyamchintalapati@gmail.com" 
               className="btn btn-outline"
             >
               Send Email

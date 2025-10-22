@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from './Icon';
 import '../styles/components.css';
 
 const Footer: React.FC = () => {
@@ -7,23 +8,23 @@ const Footer: React.FC = () => {
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/yourusername',
-      icon: '🐙'
+      url: 'https://github.com/C-S-V-S-Subrahmanyam',
+      icon: 'github'
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/yourprofile',
-      icon: '💼'
+      url: 'https://www.linkedin.com/in/subrahmanyam25',
+      icon: 'linkedin'
     },
     {
-      name: 'Twitter',
-      url: 'https://twitter.com/yourusername',
-      icon: '🐦'
+      name: 'Linktree',
+      url: 'https://linktr.ee/subrahmanyam_2510',
+      icon: 'linktree'
     },
     {
       name: 'Email',
-      url: 'mailto:your.email@example.com',
-      icon: '📧'
+      url: 'mailto:subrahmanyam310308@gmail.com',
+      icon: 'email'
     }
   ];
 
@@ -56,7 +57,7 @@ const Footer: React.FC = () => {
                   aria-label={link.name}
                   title={link.name}
                 >
-                  <span className="social-icon">{link.icon}</span>
+                  <Icon name={link.icon} size={18} />
                 </a>
               ))}
             </div>
@@ -65,29 +66,21 @@ const Footer: React.FC = () => {
           {/* Quick Links */}
           <div className="footer-section">
             <h3>Quick Links</h3>
-            {quickLinks.map((link) => (
-              <a key={link.name} href={link.path}>
-                {link.name}
-              </a>
-            ))}
-          </div>
-
-          {/* Skills */}
-          <div className="footer-section">
-            <h3>Skills</h3>
-            <p>React.js</p>
-            <p>Node.js</p>
-            <p>TypeScript</p>
-            <p>MongoDB</p>
-            <p>Python</p>
+            <div className="footer-links">
+              {quickLinks.map((link) => (
+                <a key={link.name} href={link.path} className="footer-link">
+                  {link.name}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Contact Info */}
           <div className="footer-section">
             <h3>Contact</h3>
-            <p>📍 City, Country</p>
-            <p>📧 your.email@example.com</p>
-            <p>📱 +1 (555) 123-4567</p>
+            <p>📍 Secunderabad, India</p>
+            <p>📧 subrahmanyam310308@gmail.com</p>
+            <p>📱 +91- 6303247136</p>
             <p>🌐 www.yourwebsite.com</p>
           </div>
         </div>
@@ -95,7 +88,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <p>
-            &copy; {currentYear} Your Name. All rights reserved. | 
+            &copy; {currentYear} Chinthalapati Sri Venkata Sai Subrahmanyam. All rights reserved. | 
             Built with React.js & TypeScript
           </p>
         </div>

@@ -11,13 +11,14 @@ html {
 
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0a0a0a;
-  color: #e0e0e0;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Theme Variables */
+/* Dark Theme Variables (Default) */
 :root {
   --primary-bg: #0a0a0a;
   --secondary-bg: #1a1a1a;
@@ -28,10 +29,12 @@ body {
   --muted-text: #888888;
   --accent-color: #00d4aa;
   --accent-hover: #00b894;
+  --accent-color-rgb: 0, 212, 170;
   --border-color: #333333;
   --error-color: #ff6b6b;
   --warning-color: #feca57;
   --success-color: #48dbfb;
+  --navbar-bg-rgb: 26, 26, 26;
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -39,6 +42,32 @@ body {
   --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.2);
   --shadow-heavy: 0 20px 25px rgba(0, 0, 0, 0.3);
   --shadow-glow: 0 0 20px rgba(0, 212, 170, 0.3);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --primary-bg: #ffffff;
+  --secondary-bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --accent-bg: #e9ecef;
+  --primary-text: #212529;
+  --secondary-text: #495057;
+  --muted-text: #6c757d;
+  --accent-color: #00d4aa;
+  --accent-hover: #00b894;
+  --accent-color-rgb: 0, 212, 170;
+  --border-color: #dee2e6;
+  --error-color: #dc3545;
+  --warning-color: #ffc107;
+  --success-color: #28a745;
+  --navbar-bg-rgb: 255, 255, 255;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 20px rgba(0, 212, 170, 0.2);
 }
 
 /* Typography */
